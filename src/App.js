@@ -11,6 +11,7 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [categorySelected, setCategorySelected] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [addActive, setAddActive]=useState(false);
 
   useEffect(() => {
     const getFood = async () => {
@@ -92,6 +93,7 @@ function App() {
     setCategorySelected(null);
     setCategorySelected(true);
     setShowForm(false);
+    
   };
 
   const handleCategorySelection = (category) => {
@@ -114,7 +116,7 @@ function App() {
   return (
     <div className="App">
       <Navbar
-        handleAddClick={handleAddClick}
+        handleAddClick={handleAddClick} addActive ={addActive}
       />
       <div className="category-actions-container">
         {categorySelected && !showForm && (
@@ -128,7 +130,7 @@ function App() {
           />
         )}
       </div>
-      <Menu category={selectedCategory} drinkItems={drinkItems} foodItems={foodItems} />
+      <Menu category={selectedCategory} drinkItems={drinkItems} foodItems={foodItems} setAddActive={setAddActive}/>
     </div>
   );
 }

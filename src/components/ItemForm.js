@@ -18,7 +18,7 @@ const ItemForm = ({ category, itemToEdit, onSave, onCancel }) => {
       name,
       price,
       id: itemToEdit ? itemToEdit.id : new Date().getTime(),
-      category: category || 'default' // Default value to prevent null errors
+      category: category || 'default' 
     };
     onSave(item);
     onCancel();
